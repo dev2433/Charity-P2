@@ -15,21 +15,22 @@ var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app
 // =============================================================
 module.exports = function(app) {
 
-  // GET route
-  // app.get("/api/org/", function(req, res) {
-  //   var categories = ["frirst", "second", "third"];
-  //   res.json(categories);
-  //   // GET request for remote image
-  //   axios({
-  //     method:'get',
-  //     // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category,
-  //     url: charitybaseurl+'&zip=12309',
-  //     responseType:'json',//req.params.zip
-  //   })
-  //     .then(function(response) {
-  //     res.send(response.data);
-  //   });
-  // });
+
+  app.get("/api/org/:zipcode", function(req, res) {
+    // Remember that the data coming thru this request is going to come
+    // of the req.params object.
+    let zip = req.params.zipcode;
+    
+    axios({
+      method:'get',
+      // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category,
+      url: `${charitybaseurl}&zip=${zip}`,
+      responseType:'json' //req.params.zip
+    })
+      .then(function(response) {
+      res.json(response.data)
+    });
+  });
 
   app.get("/api/charities/", function(req, res) {
     // Use the Sequelize ORM to query the database for all charities stored.
