@@ -4,29 +4,46 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [100]
       }
     },
-      address: {
-        type: DataTypes.TEXT,
+      city: {
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
+
+       state: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [100]
+        }
+      },
+
+       zipcode: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [100]
+        }
+      },
+
       category: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
 
       description: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
 
@@ -34,23 +51,23 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
 
       url: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
 
       url_image: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1]
+          len: [100]
         }
       },
   });

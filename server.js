@@ -5,6 +5,8 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require ("./models");
+// console.log(db);
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -35,6 +37,9 @@ require("./routes/htmlRoutes")(app);
 // The below code effectively "starts" our server
 // =============================================================================
 
-app.listen(PORT, function() {
+
+db.sequelize.sync().then(function(){
+	app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
+})

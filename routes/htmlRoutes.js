@@ -16,19 +16,19 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/index", function(req, res) {
-    // res.sendFile(path.join(__dirname, "../public/index.html"));
+     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   app.get("/contact", function(req, res) {
-    // res.sendFile(path.join(__dirname, "../public/contact.html"));
+     res.sendFile(path.join(__dirname, "../public/contact.html"));
   });
 
   app.get("/mission", function (req, res){
-    // res.sendFile(path.join(__dirname, "../public/mission.html"));
+     res.sendFile(path.join(__dirname, "../public/mission.html"));
   })
 
   // If no matching route is found default to home
-  app.get("*", function(req, res) {
-    // res.sendFile(path.join(__dirname, "../public/index.html"));
+  app.get("/", function(req, res) {
+     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 };

@@ -16,22 +16,36 @@ var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app
 module.exports = function(app) {
 
   // GET route 
-  app.get("/api/org", function(req, res) {
-    res.send("/api/org\n\n");
-    // GET request for remote image
-    axios({
-      method:'get',
-      // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category, 
-      url: charitybaseurl+'&zip=12309',
-      responseType:'json',//req.params.zip
+  // app.get("/api/org/", function(req, res) {
+  //   var categories = ["frirst", "second", "third"];
+  //   res.json(categories);
+  //   // GET request for remote image
+  //   axios({
+  //     method:'get',
+  //     // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category, 
+  //     url: charitybaseurl+'&zip=12309',
+  //     responseType:'json',//req.params.zip
+  //   })
+  //     .then(function(response) {
+  //     res.send(response.data);
+  //   });
+  // });
+
+  app.get("/api/categories/", function(req, res) {
+    
+    db.my_charity.findAll({}).then((data) => {
+      res.json(data);
     })
-      .then(function(response) {
-      res.send(response.data);
-    });
+
+    // var categories = ["first", "second", "third"];
+    // res.json(categories);
   });
 
+
+
   // POST route 
-  app.post("/api/todo", function(req, res) {
+  app.post("/api/opportunity", function(req, res) {
+    var opp = req.body.aomething
 
   });
 
