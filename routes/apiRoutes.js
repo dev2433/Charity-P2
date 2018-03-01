@@ -45,7 +45,7 @@ module.exports = function(app) {
 
   // POST route 
   app.post("/api/opportunity", function(req, res) {
-    var opp = req.body.aomething
+    var opp = req.body.something
 
   });
 
