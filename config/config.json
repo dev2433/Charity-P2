@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Success1",
-    "database": "my_charity",
+    "password": "",
+    "database": "charity_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

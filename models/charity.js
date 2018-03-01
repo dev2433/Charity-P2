@@ -1,17 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
-  var my_charity = sequelize.define("my_charity", {
+  var charity = sequelize.define("charity", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [100]
+        len: [1, 100]
       }
     },
       city: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [1, 100]
         }
       },
 
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [1, 100]
         }
       },
 
@@ -35,23 +35,20 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [1, 100]
         }
       },
 
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          len: [100]
-        }
       },
 
       phone_number: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [10, 15]
         }
       },
 
@@ -65,11 +62,11 @@ module.exports = function(sequelize, DataTypes) {
 
       url_image: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
-          len: [100]
+          len: [1, 100]
         }
       },
   });
-  return my_charity;
+  return charity;
 };

@@ -15,14 +15,14 @@ var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app
 // =============================================================
 module.exports = function(app) {
 
-  // GET route 
+  // GET route
   // app.get("/api/org/", function(req, res) {
   //   var categories = ["frirst", "second", "third"];
   //   res.json(categories);
   //   // GET request for remote image
   //   axios({
   //     method:'get',
-  //     // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category, 
+  //     // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category,
   //     url: charitybaseurl+'&zip=12309',
   //     responseType:'json',//req.params.zip
   //   })
@@ -31,10 +31,11 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.get("/api/categories/", function(req, res) {
-    
-    db.my_charity.findAll({}).then((data) => {
-      res.json(data);
+  app.get("/api/charities/", function(req, res) {
+    // Use the Sequelize ORM to query the database for all charities stored.
+    db.charity.findAll({}).then((charities) => {
+      // console.log(charities)
+      res.json(charities)
     })
 
     // var categories = ["first", "second", "third"];
@@ -43,14 +44,14 @@ module.exports = function(app) {
 
 
 
-  // POST route 
+  // POST route
   app.post("/api/opportunity", function(req, res) {
     var opp = req.body.something
 
   });
 
 
-  // PUT route for 
+  // PUT route for
   // app.put("/api/todos", function(req, res) {
 
   // });

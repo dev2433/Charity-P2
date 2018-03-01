@@ -4,6 +4,7 @@
 // ==============================================================================
 
 var express = require("express");
+var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require ("./models");
 // console.log(db);
@@ -15,6 +16,10 @@ var db = require ("./models");
 
 // Tells node that we are creating an "express" server
 var app = express();
+
+// Set the view engine to use handlebars.
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8080;

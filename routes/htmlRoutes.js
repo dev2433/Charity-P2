@@ -15,12 +15,14 @@ module.exports = function(app) {
   // In each of the below cases the user is shown an HTML page of content
   // ---------------------------------------------------------------------------
 
-  app.get("/index", function(req, res) {
-     res.sendFile(path.join(__dirname, "../public/index.html"));
+  app.get("/", function(req, res) {
+     // res.sendFile(path.join(__dirname, "../public/index.html"));
+     res.render('home')
   });
 
   app.get("/contact", function(req, res) {
-     res.sendFile(path.join(__dirname, "../public/contact.html"));
+     // res.sendFile(path.join(__dirname, "../public/contact.html"));
+     res.render('contact');
   });
 
   app.get("/mission", function (req, res){
@@ -28,7 +30,7 @@ module.exports = function(app) {
   })
 
   // If no matching route is found default to home
-  app.get("/", function(req, res) {
-     res.sendFile(path.join(__dirname, "../public/index.html"));
+  app.get("*", function(req, res) {
+     res.render('home')
   });
 };
