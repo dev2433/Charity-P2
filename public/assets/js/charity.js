@@ -26,13 +26,13 @@ $(function() {
   })
 
   // Add event listener to getCharities button.
-  getCharities.on('click', function() {
-    // Make asynchrounous request to our api to get charities stored in
-    // our datastore.
-    $.get('/api/charities/', function(charities) {
-      console.log(charities)
-    });
-  });
+  // getCharities.on('click', function() {
+  //   // Make asynchrounous request to our api to get charities stored in
+  //   // our datastore.
+  //   $.get('/api/charities/', function(charities) {
+  //     console.log(charities)
+  //   });
+  // });
 
 
 

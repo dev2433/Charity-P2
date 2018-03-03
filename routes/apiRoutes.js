@@ -20,7 +20,7 @@ module.exports = function(app) {
     // Remember that the data coming thru this request is going to come
     // of the req.params object.
     let zip = req.params.zipcode;
-    
+
     axios({
       method:'get',
       // url: charitybaseurl+'&zip=' +req.params.zip + '&category=' +req.params.category,
@@ -32,11 +32,17 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/charities/", function(req, res) {
+  app.get("/localOrgs", function(req, res) {
     // Use the Sequelize ORM to query the database for all charities stored.
     db.charity.findAll({}).then((charities) => {
       // console.log(charities)
-      res.json(charities)
+      // res.json(charities)
+      
+      var allCharity = {
+        stuff: charities
+      }
+
+      res.render('dallasOrgs', allCharity);
     })
 
     // var categories = ["first", "second", "third"];
