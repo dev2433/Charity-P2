@@ -46,6 +46,10 @@ module.exports = function(app) {
     // res.json(categories);
   });
 
+  app.get("/adder", function(req, res) {
+    res.render('adder');
+  })
+
 
 
   // POST route
