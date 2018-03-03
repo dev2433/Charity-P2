@@ -8,7 +8,7 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require ("./models");
 // console.log(db);
-
+//test
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
