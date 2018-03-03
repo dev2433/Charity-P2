@@ -6,6 +6,8 @@ DROP DATABASE IF EXISTS charity_db;
 
 CREATE DATABASE charity_db;
 
+
+
 -- create table charities (
 -- id int not null AUTO_INCREMENT,
 -- charity_name varchar(225) not null,

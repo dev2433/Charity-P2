@@ -20,6 +20,16 @@ module.exports = function(app) {
      res.render('home')
   });
 
+  // This is the route for logging a user in.
+  app.get('/login', function(req, res) {
+    res.render('login');
+  })
+
+  // This is the route for signing up.
+  app.get('/signup', function(req, res) {
+    res.render('signup');
+  });
+
   app.get("/contact", function(req, res) {
      // res.sendFile(path.join(__dirname, "../public/contact.html"));
      res.render('contact');

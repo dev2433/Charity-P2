@@ -4,9 +4,11 @@
 // ==============================================================================
 
 var express = require("express");
+var session = require('express-session');
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var db = require ("./models");
+var passport = require('./config/passport');
 // console.log(db);
 
 // ==============================================================================
@@ -29,6 +31,10 @@ app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// Add the Passport middlemare.....
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ================================================================================
 // ROUTER
@@ -38,6 +44,7 @@ app.use(bodyParser.json());
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/authenticationRoutes")(app);
 
 // =============================================================================
 // LISTENER
