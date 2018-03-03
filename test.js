@@ -9,10 +9,9 @@ describe('Load a Page', function () {
     beforeEach(() => {
         nightmare = new Nightmare()
     })
-
+// test the the homepage to make sure it is working 
     describe('/ (Home Page)', () => {
         it('should load without error', done => {
-            // your actual testing urls will likely be `http://localhost:port/path`
             nightmare.goto('http://localhost:8080/')
                 .end()
                 .then(function (result) { done() })
@@ -20,3 +19,14 @@ describe('Load a Page', function () {
         })
     })
 })
+
+// test the autorization 
+// describe('/auth (Login Page)', () => {
+//     it('should load without error', done => {
+//         nightmare.goto('https://localhost/auth')
+//             .end()
+//             .then(result => { done() })
+//             .catch(done)
+//     })
+// })
+//   })
