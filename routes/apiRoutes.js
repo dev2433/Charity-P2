@@ -37,12 +37,9 @@ module.exports = function(app) {
     db.charity.findAll({}).then((charities) => {
       // console.log(charities)
       // res.json(charities)
-      
-      var allCharity = {
-        stuff: charities
-      }
+    
 
-      res.render('dallasOrgs', allCharity);
+      res.render('dallasOrgs', {allCharities: charities});
     })
 
     // var categories = ["first", "second", "third"];
