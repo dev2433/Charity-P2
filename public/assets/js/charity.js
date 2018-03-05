@@ -1,7 +1,7 @@
 
 
 
-$(function() {
+$(document).ready(function(){
   console.log("jquery is loaded in the page")
 
   // Stored a reference to the button in the home page to get DFW Charities

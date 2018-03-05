@@ -28,6 +28,7 @@ module.exports = function(app) {
       responseType:'json' //req.params.zip
     })
       .then(function(response) {
+        console.log(response);
       res.json(response.data)
     });
   });
