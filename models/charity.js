@@ -60,13 +60,8 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
 
-      url_image: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1, 100]
-        }
-      },
+      
+    
   });
   return charity;
 };
