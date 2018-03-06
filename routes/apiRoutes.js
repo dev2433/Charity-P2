@@ -16,10 +16,12 @@ var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app
 module.exports = function(app) {
 
 
-  app.get("/api/org/:zipcode", function(req, res) {
+  app.post("/api/org/zipcode", function(req, res) {
     // Remember that the data coming thru this request is going to come
     // of the req.params object.
-    let zip = req.params.zipcode;
+
+    let zip = req.body.zipcode;
+    console.log(zip)
 
     axios({
       method:'get',
@@ -28,8 +30,9 @@ module.exports = function(app) {
       responseType:'json' //req.params.zip
     })
       .then(function(response) {
-        console.log(response);
-      res.json(response.data)
+        console.log(response.data)
+      res.render('charities', {items: response.data})
+        // res.json(response.data)
     });
   });
 

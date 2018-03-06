@@ -15,13 +15,14 @@ var db = require ("./models");
 
 // Tells node that we are creating an "express" server
 var app = express();
+var PORT = process.env.PORT || 8080;
 
 // Set the view engine to use handlebars.
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // Sets an initial port. We"ll use this later in our listener
-var PORT = process.env.PORT || 8080;
+
 
 app.use(express.static("public"));
 
