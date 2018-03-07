@@ -40,7 +40,7 @@ module.exports = function(app) {
   })
 
   app.get('/logout', function(req, res) {
-    console.log(req.logout);
+    
     // Passport exposes the logout function on the request object.
     req.logout()
     res.redirect('/')

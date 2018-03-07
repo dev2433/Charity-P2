@@ -1,15 +1,6 @@
+
+
 // Require the dababase so that users can be manipulated in our database.
-<<<<<<< HEAD
-var db = require('../models')
-
-module.exports = function(app) {
-
-
-  app.post('/create_newUser', function(req, res) {
-    console.log(req.body);
-
-  })
-=======
 var db = require('../models');
 var passport = require('../config/passport');
 
@@ -69,5 +60,4 @@ module.exports = function(app) {
   })
 
 
->>>>>>> passport_login
 }
