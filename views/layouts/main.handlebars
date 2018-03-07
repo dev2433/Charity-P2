@@ -4,36 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHARITY3.5</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Contact-FormModal-Contact-Form-with-Google-Map.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="/assets/css/Article-List.css">
+    <link rel="stylesheet" href="/assets/css/Contact-FormModal-Contact-Form-with-Google-Map.css">
+    <link rel="stylesheet" href="/assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="/assets/css/Header-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
     <!-- This is the navigation section of the application -->
 
     <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color:rgb(248,240,45);font-family:Nanum Gothic;">
-        <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/Logomakr_69rNdd.png" width="300px" style="height:75PX;">&nbsp;</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="#"><img src="/assets/img/Logomakr_69rNdd.png" width="300px" style="height:75PX;">&nbsp;</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link"><br></a></li> -->
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/login">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/mission"><strong>Mission Statement</strong></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/contact" style="font-family:Nanum Gothic;"><strong>Contact</strong></a></li>
-                    <li class="nave-item" role="presentation"><a class="nav-link" href="#"><input type="text" id="charity_zipcode" placeholder="Search By Zipcode"></a></li>
+                    {{#if user}}
+                     <li class="nav-item" role="presentation"><a id="logout" class="nav-link" href="/logout"><strong>Logout</strong></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="/mission"><strong>Mission Statement</strong></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="/contact" style="font-family:Nanum Gothic;"><strong>Contact</strong></a></li>
+                    {{else}}
+                      <li class="nav-item" role="presentation"><a class="nav-link" href="/login"><strong>Login</strong></a></li>
+                      <li class="nav-item" role="presentation"><a class="nav-link" href="/mission"><strong>Mission Statement</strong></a></li>
+                      <li class="nav-item" role="presentation"><a class="nav-link" href="/contact" style="font-family:Nanum Gothic;"><strong>Contact</strong></a></li>
+                    {{/if}}
                 </ul>
         </div>
         </div>
     </nav>
+
 
     {{{body}}}
 
@@ -65,12 +71,12 @@
 
 
     <!-- Scripts for other resources and additional javascript files. -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-animation.js"></script>
-    <script src="assets/js/charity.js" charset="utf-8"></script>
-    <script src="assets/js/signup.js" charset="utf-8"></script>
-    <script src="assets/js/Contact-FormModal-Contact-Form-with-Google-Map.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-animation.js"></script>
+    <script src="/assets/js/charity.js" charset="utf-8"></script>
+    <script src="/assets/js/signup.js" charset="utf-8"></script>
+    <script src="/assets/js/Contact-FormModal-Contact-Form-with-Google-Map.js"></script>
 
   </body>
 </html>
