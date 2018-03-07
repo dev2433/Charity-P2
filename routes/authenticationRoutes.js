@@ -9,9 +9,11 @@ var passport = require('../config/passport');
 module.exports = function(app) {
 
   // Logout user.
-  app.get('logout', function(req, res) {
-    console.log("We got the request")
-  })
+  // app.get('/logout', function(req, res) {
+  //   console.log("We got the request")
+  //   // Passport exposes the logout function of the request object.
+  //   req.logout();
+  // })
 
   // Use Passport to authenticate user upon login.
   app.post('/api/login', passport.authenticate('local',

@@ -11,7 +11,7 @@ $(function() {
       url: '/logout',
       method: 'GET'
     }).then(function() {
-      console.log("Im just trying to logout")
+      window.location.reload()
     })
   })
 

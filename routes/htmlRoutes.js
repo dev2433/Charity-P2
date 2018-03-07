@@ -39,6 +39,13 @@ module.exports = function(app) {
      res.sendFile(path.join(__dirname, "../public/mission.html"));
   })
 
+  app.get('/logout', function(req, res) {
+    console.log(req.logout);
+    // Passport exposes the logout function on the request object.
+    req.logout()
+    res.redirect('/')
+  })
+
   // If no matching route is found default to home
   app.get("*", function(req, res) {
      res.render('home')
