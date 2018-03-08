@@ -1,50 +1,39 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous">
-
-
-{{!-- 
-<div class="row">
-  {{#each allCharities}}
-    <div class="col-md-6">
-      {{name}}
-      {{city}}
-      {{state}}
-      {{zipcode}}
-      {{category}}
-      {{description}}
-      {{phone_number}}
-      {{url}}
-    </div>
-  {{/each}}
-</div> --}}
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"> -->
 
 
 
 
 
 
-<body>
-{{#each allCharities}}
-<div class="jumbotron jumbotron">
-  <div class="container">
-    <h1 class="display-3">{{name}}</h1>
-{{city}}
- {{state}}
-  {{zipcode}} 
-  {{category}} 
-  {{description}} 
-  {{phone_number}}
-   {{url}}
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    {{#each allCharities}}
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="http://via.placeholder.com/286x180" alt="charity_image">
+          <div class="card-body">
+            <h4 class="card-title">{{name}}</h4>
+            <p>{{description}}</p>
+            <a href="{{url}}">{{name}}</a>
+            <p>{{phone_number}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
   </div>
 </div>
-{{/each}}
 
 
 
 
-
-
-</body>
 
 
 
@@ -53,4 +42,3 @@
 
 
 <button type="button" class="btn btn-outline-primary"><a href="adder">Add a Charity</a></button>
-
