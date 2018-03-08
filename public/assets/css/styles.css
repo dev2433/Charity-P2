@@ -1,4 +1,62 @@
+
+/* Search-bar section */
+
 .search-bar {
   background-color: rgba(13, 123, 224, 1.0);
   padding: 20px;
+}
+
+.search-bar input {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.zip_search_text {
+  text-align: center;
+  font-size: 24px;
+  color: rgba(244, 248, 0, 1.0);
+}
+
+.search-bar p {
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.search-bar a {
+  font-size: 20px;
+  padding: 7px;
+  text-decoration: none;
+  color: rgba(244, 248, 0, 1.0);
+}
+
+.search-bar a:hover {
+  color: red;
+}
+
+/* dallasOrgs.handlebars styles */
+
+.dallasOrgs {
+  margin-top: 25px;
+}
+
+.orgCard {
+  margin-bottom: 15px;
+}
+
+/* charities.handlebars styles */
+
+.zip-search-orgs {
+  margin-top: 25px;
+}
+
+.zip-org {
+  margin-bottom: 20px
+}
+
+/* adder.handlbars styles */
+
+.form-container {
+  width: 960px;
+  margin: 20px auto;
 }

@@ -1,39 +1,121 @@
-<div class="jumbotron">
+
+<div class="form-container">
+  <form action="index.html" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="charityName">Charity Name</label>
+        <input type="text" class="form-control" name="charityName">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="url">Website Addres</label>
+        <input type="url" class="form-control" name="url">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="charityImage">Charity Logo/Photo</label>
+        <input type="text" class="form-control" name="charityImage">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="phone_number">Phone Number</label>
+        <input type="tel" class="form-control" name="phone_number">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="city">City</label>
+        <input type="text" class="form-control" name="city">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="state">State</label>
+        <input type="text" class="form-control" name="state">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" class="form-control" name="zipcode">
+      </div>
+
+    </div>
+    <div class="form-row">
+
+
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Category</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="hs">Homeless</option>
+            <option value="al">Animals</option>
+            <option value="yh">Youth</option>
+            <option value="vs">Veterans</option>
+            <option value="lq">LGBTQ</option>
+            <option value="wm">Women</option>
+            <option value="hc">Healthcare</option>
+            <option value="ml">Meals</option>
+            <option value="mn">Minorities</option>
+            <option value="sc">Senior Citizens</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="description">Desciption</label>
+        <textarea rows="3" class="form-control" name="description"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="jumbotron">
     <form class="form-group">
             <fieldset>
                 <!-- Address form -->
 
-                <h2>Add Your Charity!</h2>
+                <!-- <h2>Add Your Charity!</h2> -->
 
                 <!-- full-name input-->
-                <div class="row">
-                <div class="control-group col-sm-2">
+                <!-- <div class="row">
+                <div class="control-group col-md-4">
                     <label class="control-label">Charity's Name</label>
                     <div class="controls">
                         <input id="name" name="name" type="text" placeholder="charityName"
                         class="input-xlarge">
                         <p class="help-block"></p>
                     </div>
-                </div>
+                </div> -->
                 <!-- URL input-->
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">Website Address</label>
                     <div class="controls">
                         <input id="url" name="url" type="text" placeholder="www.example.com"
                         class="input-xlarge">
                     </div>
-                </div>
+                </div> -->
                 <!-- URL photo input-->
 
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">Link an image of your charity!</label>
                     <div class="controls">
                         <input id="url_image" name="url_image" type="text" placeholder="Link your Image!"
                         class="input-xlarge">
                     </div>
-                </div>
+                </div> -->
                 <!-- Phone Number -->
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">Phone Number</label>
                     <div class="controls">
                         <input id="phone_number" name="phone_number" type="text" placeholder="(123) 456-7890"
@@ -41,9 +123,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row"> -->
                 <!-- Category-->
-				<div class="control-group col-sm-2">
+				<!-- <div class="control-group col-md-4">
                     <label class="control-label">Category</label>
                     <div class="controls">
                         <select id="category" name="category" class="input-xlarge">
@@ -61,40 +143,40 @@
 
                         </select>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- city input-->
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">City / Town</label>
                     <div class="controls">
                         <input id="city" name="city" type="text" placeholder="city" class="input-xlarge">
  						<br>
                      </div>
-                </div>
+                </div> -->
                 <!-- state input-->
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">State</label>
                     <div class="controls">
                         <input id="state" name="state" type="text" placeholder="state / province / region"
                         class="input-xlarge">
                         <br>
                     </div>
-                </div>
+                </div> -->
                 <!-- postal-code input-->
-                <div class="control-group col-sm-2">
+                <!-- <div class="control-group col-md-4">
                     <label class="control-label">Zip / Postal Code</label>
                     <div class="controls">
                         <input id="zipcode" name="zipcode" type="text" placeholder="zip or postal code"
                         class="input-xlarge">
                         <p class="help-block"></p>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div>
             </div>
                 <div class="form-group col-sm-8">
     <label for="desciption">Brief Desciption of Your Charity</label>
     <textarea class="form-control" id="desciption" rows="3"></textarea>
-  </div>
+  </div> -->
 
-            </fieldset>
+            <!-- </fieldset>
         </form>
-    </div>
+    </div> -->
