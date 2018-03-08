@@ -21,7 +21,8 @@ module.exports = function(app) {
   app.post('/api/login', passport.authenticate('local',
    {sucessRedirect: '/', failureRedirect: '/login', failureFlash: true}),
    function(req, res) {
-     res.redirect('/')
+     // If login is successful, redirect to the 'home' page.
+    res.redirect('/');
   })
 
   // Create a new user and save user to the database.
