@@ -53,3 +53,10 @@
 .zip-org {
   margin-bottom: 20px
 }
+
+/* adder.handlbars styles */
+
+.form-container {
+  width: 960px;
+  margin: 20px auto;
+}
