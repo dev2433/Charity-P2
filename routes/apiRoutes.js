@@ -8,6 +8,7 @@
 // Grabbing our models
 
 var db = require("../models");
+var isAuthenticated = require('../config/isAuthenticated');
 var axios = require("axios");
 var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app_id=1e3a890b&app_key=7ede0f4b1362b28da1719287d4f6e23f";
 
@@ -57,14 +58,24 @@ module.exports = function(app) {
 
 
   // POST route
-  app.post("/api/opportunity", function(req, res) {
-    var opp = req.body.something
+  app.post("/adder", isAuthenticated, function(req, res) {
+    console.log(req.body.category)
+    db.charity.create({
+      name: req.body.charityName,
+      url_image: req.body.charityImage,
+      url: req.body.url,
+      phone_number: req.body.phone_number,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode,
+      category: req.body.category,
+      description: req.body.description
+    }).then(function(dbCharity) {
+      // Redirecting to dallasOrgs does not make the call to the database and
+      // re-render the charities. Will have to address that issue.
+      res.render('home', {success_msg: "Your charity has been added!"});
+    })
 
   });
 
-
-  // PUT route for
-  // app.put("/api/todos", function(req, res) {
-
-  // });
 };

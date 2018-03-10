@@ -13,6 +13,9 @@ var path = require('path');
 var db = require ("./models");
 var passport = require('./config/passport');
 
+
+
+
 // console.log(db);
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -69,7 +72,9 @@ app.use(function(req, res, next) {
 	res.locals.error = req.flash('error');
 	res.locals.user = req.user || null;
 	next();
-})
+});
+
+
 
 // ================================================================================
 // ROUTER

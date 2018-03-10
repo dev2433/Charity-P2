@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [1, 10]
         }
       },
 
@@ -56,12 +56,17 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [100]
+          len: [1, 200]
         }
       },
-
-      
-    
   });
+
+  // charity.associate = function(models) {
+  //   charity.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // }
   return charity;
 };

@@ -60,3 +60,13 @@
   width: 960px;
   margin: 20px auto;
 }
+
+/* login.handlebars && signup.handlebars form styling */
+
+.authForms {
+  width: 80%;
+}
+
+.authContent {
+  margin: 10px auto;
+}

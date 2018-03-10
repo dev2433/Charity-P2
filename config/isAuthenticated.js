@@ -10,6 +10,6 @@ module.exports = function(req, res, next) {
   } else {
     // If not user, send user back to the home page.
     // This is a great place to let the user know they need to logged in.
-    res.redirect('/')
+    res.render('login', {error_msg: 'Please log in.'})
   }
 };

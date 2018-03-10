@@ -11,7 +11,9 @@
         <img class="card-img-top" src="http://via.placeholder.com/286x180" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{charityName}}</h5>
-
+          {{#if user}}
+            <a href="#" class="btn btn-primary">Add To Favs</a>
+          {{/if}}
         </div>
       </div>
     </div>

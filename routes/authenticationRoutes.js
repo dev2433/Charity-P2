@@ -33,10 +33,12 @@ module.exports = function(app) {
     var password2 = req.body.password2;
 
     // Validation Check
+    req.check("firstName", "Please enter your first name.").notEmpty();
+    req.check("firstName", "Please enter your first name.").notEmpty();
     req.check("email", "Email is required").notEmpty();
     req.check("email", "Email is not valid").isEmail();
     req.check("password", "Password is required").notEmpty();
-    req.check("password2", "Passwords do not match").equals(req.body.password)
+    req.check("password2", "Passwords do not match").equals(req.body.password);
 
 
     var errors = req.validationErrors();
@@ -45,6 +47,8 @@ module.exports = function(app) {
       res.render('signup', {errors: errors})
     } else {
       db.User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password
       }).then(function(user) {
@@ -58,7 +62,39 @@ module.exports = function(app) {
         res.render('home', {error_msg: 'There was a problem creating this account'});
       })
     }
-  })
+  });
+
+  // Update user profile.
+  app.post('/update-profile', function(req, res) {
+    // Validation Check
+    req.check("firstName", "Please enter your first name.").notEmpty();
+    req.check("firstName", "Please enter your first name.").notEmpty();
+    req.check("email", "Email is required").notEmpty();
+    req.check("email", "Email is not valid").isEmail();
+    req.check("password", "Password is required").notEmpty();
+    req.check("password2", "Passwords do not match").equals(req.body.password);
+
+      var errors = req.validationErrors();
+
+      if(errors) {
+        res.render('update-profile', {errors: errors})
+      } else {
+        db.User.update({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          password: req.body.password
+        }, {
+          where: {
+            id: req.user.id
+          }
+        }).then(function() {
+          res.redirect('/');
+          // res.render('update-profile', {success_msg: "Your profile was successfully updated!"})
+        })
+      }
+
+  });
 
 
 }
