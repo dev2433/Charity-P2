@@ -17,6 +17,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+  User.associate = function(models) {
+    models.User.belongsToMany(models.favorite_charity, {through: 'UserFavoriteCharity'});
+  };
 
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password)

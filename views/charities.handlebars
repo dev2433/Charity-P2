@@ -12,7 +12,13 @@
         <img class="card-img-top" src="http://via.placeholder.com/286x180" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{charityName}}</h5>
-
+          <form class="signup" method="post" action="/api/user-charity" >
+            <div class="form-group" style="display: none">
+              <label for="Charity Category">Charity Category</label>
+              <input type="category" class="form-control" id="name" placeholder="Category" name="name" value={{charityName}}>
+            </div>
+            <button type="submit" class="btn btn-default signup-submit><h5 class="card-title">{{charityName}}</h5></button>
+          </form>
         </div>
       </div>
     </div>

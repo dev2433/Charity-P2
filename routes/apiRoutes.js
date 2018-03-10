@@ -30,7 +30,7 @@ module.exports = function(app) {
       responseType:'json' //req.params.zip
     })
       .then(function(response) {
-        console.log(response.data)
+        //console.log(response.data)
       res.render('charities', {items: response.data})
         // res.json(response.data)
     });
@@ -59,6 +59,22 @@ module.exports = function(app) {
   // POST route
   app.post("/api/opportunity", function(req, res) {
     var opp = req.body.something
+
+  });
+
+  app.post("/api/user-charity", function(req, res) {
+    //var opp = req.body.something
+    console.log('req.user: ', req.user);
+   // console.log('req.body: ', req.body);
+    db.favorite_charity.findOrCreate({where: {name: req.body.name}})
+    .then(function(charity) {
+      //console.log('charity[0]', charity[0]);
+      db.UserFavoriteCharity.findOrCreate({
+        where: {
+          favoriteCharityId: charity[0].dataValues.id,
+          UserId: req.user.id
+        }})
+    });
 
   });
 
