@@ -35,6 +35,10 @@ module.exports = function(app) {
      res.render('contact');
   });
 
+  app.get("/favorites", function (req, res){
+     res.sendFile(path.join(__dirname, "../views/favorites.handlebars"));
+  })
+
   app.get("/mission", function (req, res){
      res.sendFile(path.join(__dirname, "../public/mission.html"));
   })

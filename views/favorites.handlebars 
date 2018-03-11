@@ -9,13 +9,20 @@
     {{#each user.favorite_charities}}
     <div class="col-md-4">
       <div class="card">
-        <img class="card-img-top" src="http://via.placeholder.com/286x180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
+          <div class="card-body">
+          <h5 class="card-title">{{charityName}}</h5>
+          <table class="signup" method="post" action="/api/user-charity" >
+            <div class="table" style="display: none">
+              <label for="Charity Name">Charity Name</label>
+              <input type="category" class="form-control" id="name" placeholder="Name" name="name" value={{charityName}}>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    {{/each}}
+    {{/each}}s
   </div>
 
 </div>
+
+

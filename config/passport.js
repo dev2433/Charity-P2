@@ -17,6 +17,7 @@ passport.use(new LocalStrategy(
       },
       include: [db.favorite_charity]
     }).then(function(dbUser) {
+      console.log('dbUser: ', dbUser);
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {

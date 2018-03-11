@@ -46,8 +46,7 @@ module.exports = function(app) {
       res.render('dallasOrgs', { allCharities: charities });
     })
 
-    // var categories = ["first", "second", "third"];
-    // res.json(categories);
+   
   });
 
   app.get("/adder", function(req, res) {

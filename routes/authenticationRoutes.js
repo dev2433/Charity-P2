@@ -52,7 +52,7 @@ module.exports = function(app) {
         // The method below did not flash the succes method upon
         // rendering of the login page.
         // req.flash('success_msg', 'You are now registerd.')
-        res.render('login', {success_msg: 'You are now registerd and can login.'});
+        res.render('login', {success_msg: 'You are now registered and can login.'});
       }).catch(function(err) {
         console.log(err);
         res.render('home', {error_msg: 'There was a problem creating this account'});
