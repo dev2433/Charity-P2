@@ -33,13 +33,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+  User.associate = function(models) {
+    models.User.belongsToMany(models.favorite_charity, {through: 'UserFavoriteCharity'});
+  };
 
-  // User.associate = function(models) {
-  //   // Associating User with charities.
-  //   User.hasMany(models.charity, {
-  //     onDelete: "cascade"
-  //   })
-  // }
 
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
@@ -49,8 +46,14 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  User.hook("beforeUpdate", function(user) {
-    user.password = bcryt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-  })
+  User.addHook("beforeUpdate", function(user) {
+    console.log("This is firing")
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
+
+
+
+
+
   return User;
 }
