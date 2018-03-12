@@ -79,19 +79,20 @@ module.exports = function(app) {
       if(errors) {
         res.render('update-profile', {errors: errors})
       } else {
-        db.User.update({
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email,
-          password: req.body.password
-        }, {
+        db.User.findOne({
           where: {
             id: req.user.id
           }
-        }).then(function() {
-          res.redirect('/');
-          // res.render('update-profile', {success_msg: "Your profile was successfully updated!"})
-        })
+        }).then(function(user) {
+          user.update({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+          }).then(function(user) {
+            res.redirect("/");
+          })
+        });
       }
 
   });
