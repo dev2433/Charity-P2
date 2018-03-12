@@ -36,6 +36,25 @@ module.exports = function(app) {
     });
   });
 
+//NEW CODE FOR GETTING THE FAVORITE CHARITIES
+
+  app.get("/favorites", function(req, res) {
+    // Use the Sequelize ORM to query the database for all charities stored.
+    // console.log("/n/n"+req.user.id);
+    db.UserFavoriteCharity.findAll({where: {UserId: req.user.id}}).then((favorite_charities) => {
+      console.log(favorite_charities)
+      // res.json(charities)
+
+
+      res.render('favorites', { allCharities: favorite_charities });
+    })
+
+   
+  });
+
+
+  //END OF NEW CODE
+
   app.get("/localOrgs", function(req, res) {
     // Use the Sequelize ORM to query the database for all charities stored.
     db.charity.findAll({}).then((charities) => {

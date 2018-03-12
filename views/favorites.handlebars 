@@ -6,11 +6,11 @@
 
 <div class="container">
   <div class="row">
-    {{#each user.favorite_charities}}
-    <div class="col-md-4">
+    {{#each favorite_charities}}
+<!--     <div class="col-md-4">
       <div class="card">
           <div class="card-body">
-          <h5 class="card-title">{{charityName}}</h5>
+          <h5 class="card-title">{{name}}</h5>
           <table class="signup" method="post" action="/api/user-charity" >
             <div class="table" style="display: none">
               <label for="Charity Name">Charity Name</label>
@@ -19,10 +19,9 @@
           </form>
         </div>
       </div>
-    </div>
-    {{/each}}s
+    </div> -->
+    {{/each}}
   </div>
 
 </div>
-
 
