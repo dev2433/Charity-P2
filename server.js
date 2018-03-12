@@ -13,6 +13,9 @@ var path = require('path');
 var db = require ("./models");
 var passport = require('./config/passport');
 
+// Require dotenv package.
+require('dotenv').config();
+
 
 
 

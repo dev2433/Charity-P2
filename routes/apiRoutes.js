@@ -10,7 +10,7 @@
 var db = require("../models");
 var isAuthenticated = require('../config/isAuthenticated');
 var axios = require("axios");
-var charitybaseurl = "https://api.data.charitynavigator.org/v2/Organizations?app_id=1e3a890b&app_key=7ede0f4b1362b28da1719287d4f6e23f";
+var charitybaseurl = `https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.charityNavigator_app_id}&app_key=${process.env.charityNavigator_app_key}`;
 
 // Routes
 // =============================================================
