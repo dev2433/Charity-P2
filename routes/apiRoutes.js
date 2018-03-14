@@ -43,11 +43,11 @@ module.exports = function(app) {
     // console.log("/n/n"+req.user.id);
     db.UserFavoriteCharity.findAll({where: {UserId: req.user.id}}).then((favorite_charities) => {
       console.log(favorite_charities)
-      // res.json(charities)
+      res.json(favorite_charities);
 
 
-      res.render('favorites', { allCharities: favorite_charities });
-    })
+      // res.render('favorites', { allCharities: favorite_charities });
+    });
 
    
   });
@@ -87,10 +87,15 @@ module.exports = function(app) {
     db.favorite_charity.findOrCreate({where: {name: req.body.name}})
     .then(function(charity) {
       //console.log('charity[0]', charity[0]);
-      db.UserFavoriteCharity.findOrCreate({
+      // db.UserFavoriteCharity.findOrCreate({
+      //   where: {
+      //     favoriteCharityId: charity[0].dataValues.id,
+      //     UserId: req.user.id
+        db.UserFavoriteCharity.findOrCreate({
         where: {
           favoriteCharityId: charity[0].dataValues.id,
           UserId: req.user.id
+
         }})
     });
 
