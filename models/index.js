@@ -30,7 +30,20 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+// //Models/tables
+// db.User = require('./User.js')(sequelize, Sequelize);  
+// db.UserFavoriteCharity = require('./UserFavoriteCharity.js')(sequelize, Sequelize);  
+// db.favorite_charity = require('./favorite_charity.js')(sequelize, Sequelize);
+
+// //Relations
+ 
+
+// db.UserFavoriteCharity.hasMany(db.favorite_charity);  
+// db.User.hasMany(db.UserFavoriteCharity);
+
 
 module.exports = db;

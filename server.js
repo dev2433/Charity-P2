@@ -13,6 +13,11 @@ var path = require('path');
 var db = require ("./models");
 var passport = require('./config/passport');
 
+// //Models/tables
+// db.User = require('./models/User.js')(sequelize, Sequelize);
+// db.UserFavoriteCharity = require('./models/UserFavoriteCharity.js')(sequelize, Sequelize);
+// db.favorite_charity = require('./models/favorite_charity.js')(sequelize, Sequelize);
+
 // console.log(db);
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -69,7 +74,7 @@ app.use(function(req, res, next) {
 	res.locals.error = req.flash('error');
 	res.locals.user = req.user || null;
 	next();
-})
+});
 
 // ================================================================================
 // ROUTER

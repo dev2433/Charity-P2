@@ -36,22 +36,103 @@ module.exports = function(app) {
     });
   });
 
-//NEW CODE FOR GETTING THE FAVORITE CHARITIES
+//NEW CODE FOR GETTING THE FAVORITE CHARITIES ON HTML
 
   app.get("/favorites", function(req, res) {
     // Use the Sequelize ORM to query the database for all charities stored.
     // console.log("/n/n"+req.user.id);
-    db.UserFavoriteCharity.findAll({where: {UserId: req.user.id}}).then((favorite_charities) => {
+    var query = "SELECT FC.name FROM UserFavoriteCharities as UFC JOIN favorite_charities as FC on UFC.favoriteCharityId= FC.id WHERE UFC.UserId = ?";
+    db.sequelize.query(query,{replacements:[req.user.id],type: db.sequelize.QueryTypes.SELECT})
+
+      // {where: {UserId: req.user.id}}).
+    .then((favorite_charities) => {
+      // .findAll{where: {name: req.body.name}} => {
       console.log(favorite_charities)
       res.json(favorite_charities);
 
 
-      // res.render('favorites', { allCharities: favorite_charities });
-    });
+});
 
-   
+});
+
+// app.get("/favorites", function(req,res){
+
+//   db.favorite_charity.findAll({where: {name: req.body.name}})
+
+
+// });
+
+    // db.User.findAll({where: {UserId: req.body.id}, 
+
+    //   include: [
+    //     {
+    //       model: db.UserFavoriteCharity,
+    //       include: [
+    //       {
+    //           model: favorite_charity
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }).then((favorite_charities) => {
+    //   console.log(favorite_charities)
+    //   res.json(favorite_charities);
+
+    //   // res.render('favorites', { allCharities: favorite_charities });
+    // });
+
+
+  app.get('/User', (req,res) =>{
+    db.User.findAll({
+      include: [
+        {
+          model: db.UserFavoriteCharity,
+          include: [
+          {
+            model: favorite_charity
+          }
+        ]
+      }
+    ]
+  }).then(User =>{
+    const resObj = User.map(user => {
+
+    //tidy up the user data
+    return Object.assign(
+      {},
+      {
+        User_id: User.id,
+        email: User.email,
+        UserFavoriteCharity: User.UserFavoriteCharity.map(UserFavoriteCharity => {
+
+         //tidy up the userFavoriteCharity data
+         return Object.assign(
+            {},
+            {
+              UserFavoriteCharity_id: UserFavoriteCharity.id,
+              UserId: UserFavoriteCharity.UserId,
+              favorite_charity: UserFavoriteCharity.favorite_charity.map(favorite_charity => {
+
+                //tidy up the favorite_charity data
+                return Object.assign(
+                  {},
+                  {
+                    favorite_charity_id: favorite_charity.id,
+                    name: favorite_charity.name
+                  }
+                )
+              })
+            }
+            )
+         }) 
+      }
+    )
+});
+    
+res.json(resObj)
+
   });
-
+});
 
   //END OF NEW CODE
 
@@ -87,15 +168,10 @@ module.exports = function(app) {
     db.favorite_charity.findOrCreate({where: {name: req.body.name}})
     .then(function(charity) {
       //console.log('charity[0]', charity[0]);
-      // db.UserFavoriteCharity.findOrCreate({
-      //   where: {
-      //     favoriteCharityId: charity[0].dataValues.id,
-      //     UserId: req.user.id
-        db.UserFavoriteCharity.findOrCreate({
+      db.UserFavoriteCharity.findOrCreate({
         where: {
           favoriteCharityId: charity[0].dataValues.id,
           UserId: req.user.id
-
         }})
     });
 
@@ -105,5 +181,5 @@ module.exports = function(app) {
   // PUT route for
   // app.put("/api/todos", function(req, res) {
 
-  // });
 };
+
